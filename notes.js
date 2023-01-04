@@ -5,7 +5,7 @@ hiPAge.textContent = "welcome "+userEmailIn ;
 var logOut = document.getElementById("logOut"); // log out
 var alertN = document.getElementById("alertN"); // if user get any field empty
 var saveBtn = document.getElementById("saveBtn");
-var delBtn = document.getElementById("delBtn");
+//var delBtn = document.getElementById("delBtn");
 
 var notes;
 if (localStorage.getItem("allNotes") == null){
@@ -17,17 +17,18 @@ if (localStorage.getItem("allNotes") == null){
 
 
 
- var saveForm =function(){
-    var cont = document.getElementById("cont").value ;
+ let saveForm =function(){
+    var cont = document.getElementById("cont") ;
     var userEmailIn = localStorage.getItem("currentEmail") ;
     
     if (cont !== ""){
         var note = {
            // email: email ,  
-            cont : cont,
+            cont : cont ,
             userEmailIn  : userEmailIn ,
         };
-        notes.push(note);
+        
+    notes.push(note);
         localStorage.setItem("allNotes" , JSON.stringify(notes));
         
     }else{
@@ -35,8 +36,11 @@ if (localStorage.getItem("allNotes") == null){
 
     }
  };
-
-
+ 
+ var notes = localStorage.getItem("allNotes") ;
+ var notePAge = document.querySelector("#noteShow");
+ notePAge.textContent = notes;
+ 
 
 
  
